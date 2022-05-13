@@ -1,0 +1,52 @@
+#from device
+ro.hardware.egl=meow
+ro.vendor.mediatek.platform=MT6765
+ro.boot.hardware=mt6762
+ro.hardware=mt6762
+ro.vendor.mtk_f2fs_enable=0
+ro.vendor.mtk_emmc_support=1
+ro.vendor.mtk_trustkernel_tee_support=1
+ro.vendor.mtk_data_config=1
+ro.hardware.kmsetkey=trustkernel
+ro.hardware.gatekeeper=trustkernel
+odm.teksun.support.tee=true
+ro.crypto.volume.filenames_mode=aes-256-cts
+ro.sf.lcd_density=320
+ro.boot.avb_version=1.1
+ro.boot.vbmeta.avb_version=1.1
+#
+ro.product.model=Power 5
+ro.product.brand=UMIDIGI
+ro.product.name=Power_5
+ro.product.device=Power_5
+ro.sys.xunhu_bt=Power 5
+ro.sys.xunhu_rf_mode=C2K6M
+ro.hxy.display.custom.version=UMIDIGI_Power 5_N_V1.0_20211016
+ro.xh.display.version=UMIDIGI_POWER 5_N_V1.0_20211016
+ro.product.xunhu.device=g2139dpr_v1_gg_ym_power5n_r
+net.hostname=Power 5
+ro.product.manufacturer=HXY
+#
+ro.crypto.volume.metadata.encryption=aes-256-xts:aes-256-cts
+metadata_encryption=aes-256-xts:wrappedkey_v0
+ro.crypto.volume.metadata.method=dm-default-key
+ro.crypto.dm_default_key.options_format.version=2
+ro.crypto.volume.options=::v2
+	
+ro.crypto.metadata.enabled=true
+ro.crypto.support_metadata_encrypt=true
+#others functions
+ro.secure=0
+ro.adb.secure=0
+ro.debuggable=1
+persist.sys.usb.config=mtp,adb
+persist.service.adb.enable=1
+persist.service.debuggable=1
+persist.sys.isUsbOtgEnabled=true
+ro.sys.usb.mtp.whql.enable=0
+ro.sys.usb.storage.type=mtp
+ro.treble.enabled=true
+sys.usb.controller=musb-hdrc
+sys.usb.ffs.aio_compat=true
+fbe.metadata.wrappedkey=true
+vendor.gatekeeper.disable_spu=true
