@@ -15,7 +15,7 @@ on:
 env:
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11
   DEVICE: Power_5
-  DT_LINK: https://github.com/lopestom/twrp_device_umidigi_Power_5
+  DT_LINK: https://github.com/lopestom/twrp_device_umidigi_Power_5_4_128
   DT_PATH: device/umidigi/Power_5
   TARGET: bootimage
   TZ: Asia/manila
