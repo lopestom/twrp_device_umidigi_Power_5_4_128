@@ -65,36 +65,44 @@ service keystore /system/bin/keystore /tmp/misc/keystore
 
 service keystore_auth /system/bin/keystore_auth
     oneshot
-    user root
+    user system
     group root
     disabled
     seclabel u:r:recovery:s0
         
 on fs
+on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
     setprop crypto.ready 1
     start hwservicemanager
     start servicemanager
-        
-on property:hwservicemanager.ready=true
+
+on property:hwservicemanager.ready=true && property:crypto.ready=1
     start vendor.keymaster-4-0-trustkernel
     start vendor.gatekeeper-1-0
-    #start keymaster_attestation-1-1
+    start keymaster_attestation-1-1
     
 on property:ro.crypto.state=unsupported
+    setprop crypto.ready 0
     stop teed
     stop vendor.keymaster-4-0-trustkernel
     stop vendor.gatekeeper-1-0
-    #stop keymaster_attestation-1-1
+    stop keymaster_attestation-1-1
 
 on property:ro.crypto.state=unencrypted
+    setprop crypto.ready 0
     stop teed
     stop vendor.keymaster-4-0-trustkernel
     stop vendor.gatekeeper-1-0
-    #stop keymaster_attestation-1-1
+    stop keymaster_attestation-1-1
 
-on property:twrp.decrypt.done=true && twrp.all.users.decrypted=true
+on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
+    setprop crypto.ready 0
     stop teed
     stop vendor.keymaster-4-0-trustkernel
     stop vendor.gatekeeper-1-0
-    #stop keymaster_attestation-1-1
+    stop keymaster_attestation-1-1
+
+on boot
+     start boot-hal-1-1
+     start health-hal-2-1
