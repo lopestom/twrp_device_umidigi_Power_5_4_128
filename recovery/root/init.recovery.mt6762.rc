@@ -16,6 +16,12 @@ on init
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     export LD_LIBRARY_PATH /system/bin:/vendor/bin
 
+    mkdir /mnt/vendor/persist 0700 root root
+    mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist
+
+    mkdir /mnt/vendor/protect_f 0700 root root
+    mount ext4 /dev/block/platform/bootdevice/by-name/protect1 /mnt/vendor/protect_f
+
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.ffs.aio_compat 1
