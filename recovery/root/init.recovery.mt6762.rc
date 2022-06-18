@@ -79,6 +79,7 @@ service keystore_auth /system/bin/keystore_auth
 on fs
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
+    start boot-hal-1-1
     setprop crypto.ready 1
     start hwservicemanager
     start servicemanager
@@ -110,5 +111,5 @@ on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     stop keymaster_attestation-1-1
 
 on boot
-     start boot-hal-1-1
+#     start boot-hal-1-1
      start health-hal-2-1
