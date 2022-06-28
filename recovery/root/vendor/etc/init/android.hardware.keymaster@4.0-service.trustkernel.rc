@@ -3,4 +3,5 @@ service vendor.keymaster-4-0-trustkernel /vendor/bin/hw/android.hardware.keymast
     user root
     group root drmrpc
     disabled
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64
     seclabel u:r:recovery:s0
