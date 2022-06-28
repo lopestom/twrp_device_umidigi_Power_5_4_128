@@ -72,6 +72,7 @@ service teed /vendor/bin/teed \
 	group root
 	class core
 	disabled
+        setenv LD_LIBRARY_PATH /vendor/bin:/system/bin
 	seclabel u:r:recovery:s0
 
 service tee_check_keybox /vendor/bin/tee_check_keybox
@@ -80,4 +81,5 @@ service tee_check_keybox /vendor/bin/tee_check_keybox
        class main
        disabled
        oneshot
+       setenv LD_LIBRARY_PATH /vendor/bin:/system/bin     
        seclabel u:r:recovery:s0
