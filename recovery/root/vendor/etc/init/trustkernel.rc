@@ -2,9 +2,6 @@ on post-fs
 	write /proc/bootprof "tkcore: prepare system ta path"
 
 	restorecon /mnt/vendor/persist
-	mkdir /mnt/vendor/persist/t6_twrp
-	# chown system system /mnt/vendor/persist/t6_twrp
-	# restorecon /mnt/vendor/persist/t6_twrp
 	mkdir /mnt/vendor/persist/t6
 	chown system system /mnt/vendor/persist/t6
 	restorecon /mnt/vendor/persist/t6
@@ -63,13 +60,12 @@ service teed /vendor/bin/teed \
     --rpmbdev /dev/mmcblk0rpmb \
     --rpmbdev /dev/rpmb0 \
     --prot /mnt/vendor/persist/t6 \
-    --prot /mnt/vendor/persist/t6_twrp \
     --prot /mnt/vendor/protect_f/tee \
     --logpath /data/vendor/t6/tkcore.log \
     --proprefix vendor.trustkernel
 	capabilities SYS_RAWIO
 	user root
-	group root
+	group root system
 	class core
 	disabled
         setenv LD_LIBRARY_PATH /vendor/bin:/system/bin
@@ -77,7 +73,7 @@ service teed /vendor/bin/teed \
 
 service tee_check_keybox /vendor/bin/tee_check_keybox
        user root
-       group root
+       group root system
        class main
        disabled
        oneshot
