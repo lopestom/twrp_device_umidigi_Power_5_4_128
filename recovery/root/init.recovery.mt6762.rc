@@ -1,4 +1,4 @@
-import /init.recovery.trustkernel.rc
+#import /init.recovery.trustkernel.rc
 import /vendor/etc/init/trustkernel.rc
 import /vendor/etc/init/android.hardware.gatekeeper@1.0-service.rc
 import /vendor/etc/init/android.hardware.keymaster@4.0-service.trustkernel.rc
