@@ -21,10 +21,13 @@ on init
 
     mkdir /mnt/vendor/persist
     mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist rw
-
+    mkdir /mnt/vendor/persist/t6
+    mount ext4 /mnt/vendor/persist/t6 /mnt/vendor/persist/t6 rw
     mkdir /mnt/vendor/protect_f
     mount ext4 /dev/block/platform/bootdevice/by-name/protect1 /mnt/vendor/protect_f rw
-
+    mkdir /mnt/vendor/protect_f/tee
+    mount ext4 /mnt/vendor/protect_f/tee /mnt/vendor/protect_f/tee rw
+    
     setprop sys.usb.configfs 1
     setprop sys.usb.ffs.aio_compat 1
 
@@ -84,10 +87,10 @@ service keystore_auth /system/bin/keystore_auth
 on fs
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
-    start boot-hal-1-1
     setprop crypto.ready 1
     start hwservicemanager
     start servicemanager
+#    start boot-hal-1-1
 
 on property:hwservicemanager.ready=true && property:crypto.ready=1
     start teed
@@ -117,5 +120,5 @@ on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     stop keymaster_attestation-1-1
 
 on boot
-#     start boot-hal-1-1
+     start boot-hal-1-1
      start health-hal-2-1
