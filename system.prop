@@ -24,6 +24,10 @@ odm.teksun.fingerprint.chip=fortsense_tee
 ro.boot.avb_version=1.1
 ro.boot.vbmeta.avb_version=1.1
 #
+ro.crypto.allow_encrypt_override=true
+ro.crypto.dm_default_key.options_format.version=2
+ro.crypto.volume.metadata.method=dm-default-key
+#
 ro.product.model=Power 5
 ro.product.brand=UMIDIGI
 ro.product.name=Power_5
@@ -73,5 +77,5 @@ ro.sys.usb.storage.type=mtp
 ro.treble.enabled=true
 sys.usb.controller=musb-hdrc
 sys.usb.ffs.aio_compat=true
-fbe.metadata.wrappedkey=true
+#fbe.metadata.wrappedkey=true
 vendor.gatekeeper.disable_spu=true
