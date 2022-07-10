@@ -9,7 +9,7 @@
 /product_image	    emmc	/dev/block/mapper/product_a             flags=backup=1;flashimg=1;slotselect;logical;display="Product Image_a"
 
 # Core Partitions
-/metadata             ext4    /dev/block/platform/bootdevice/by-name/md_udc         flags=backup=1;display="metadata"
+/metadata             ext4    /dev/block/platform/bootdevice/by-name/md_udc         flags=backup=1;display="metadata";mounttodecrypt
 #/md_udc		    emmc	/dev/block/platform/bootdevice/by-name/md_udc            flags=backup=1;display="md_udc"
 #/metadata	    emmc	/dev/block/platform/bootdevice/by-name/metadata          flags=backup=1;display="metadata";mounttodecrypt
 
@@ -39,7 +39,7 @@
 /nvram		    emmc	/dev/block/platform/bootdevice/by-name/nvram            flags=display="NvRam";backup=1;flashimg=1
 
 # Subscriber Identification Module (SIM)
-/protect_f	    ext4	/dev/block/platform/bootdevice/by-name/protect1         flags=display="Protect";backup=1
+/protect_f	    ext4	/dev/block/platform/bootdevice/by-name/protect1         flags=display="Protect";backup=1;mounttodecrypt
 /protect_s	    ext4	/dev/block/platform/bootdevice/by-name/protect2         flags=backup=1;subpartitionof=/protect_f
 
 # Trusted Execution Environment (TEE) - trustzone
@@ -63,6 +63,7 @@
 #Mod lopestom about encrypt_decrypt data
 /oemkeystore		emmc	/dev/block/platform/bootdevice/by-name/oemkeystore
 /keystore		emmc	/dev/block/platform/bootdevice/by-name/keystore
+/keydirectory   emmc  /metadata/vold/metadata_encryption/key;mounttodecrypt
 
 # Other partitions
 /otp            emmc    /dev/block/platform/bootdevice/by-name/otp               flags=display="otp";backup=1
