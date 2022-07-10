@@ -65,7 +65,7 @@ service teed /vendor/bin/teed \
     --proprefix vendor.trustkernel
 	capabilities SYS_RAWIO
 	user root
-	group root system
+	group root
 	class core
 	disabled
         setenv LD_LIBRARY_PATH /vendor/bin:/system/bin
@@ -73,7 +73,7 @@ service teed /vendor/bin/teed \
 
 service tee_check_keybox /vendor/bin/tee_check_keybox
        user root
-       group root system
+       group root
        class main
        disabled
        oneshot
