@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><fortsense:Config xmlns:fortsense="http://www.fortsensecorp.com/some-location" Environment="TEE" platform="项目信息: 请填写项目信息">
+  
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  <diagnosis>
+    <log_level cname="调试信息等级" default="2" desc="LOG 打印等级。默认：LOG_LEVEL_INF" format="array" options="LOG_LEVEL_INF|LOG_LEVEL_ERR" useable="true" values="2|3">0</log_level>
+  </diagnosis>
+  
+  
+  
+  
+  
+</fortsense:Config>
