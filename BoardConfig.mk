@@ -183,7 +183,7 @@ TW_USE_TOYBOX := true # should make use of ToyBox rather than BusyBox or ToolBox
 TW_DEFAULT_LANGUAGE := en
 TW_EXTRA_LANGUAGES := false
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
-TW_DEVICE_VERSION := Umi Power 5_N_V1_20220315-4GB - encrypted
+TW_DEVICE_VERSION := Umi Power 5_N_V1_220315-4_128 - encrypted
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
@@ -193,17 +193,19 @@ TW_DEFAULT_BRIGHTNESS := 155
 TW_NO_SCREEN_BLANK := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 #TW_NO_USB_STORAGE := false
-TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-#TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
+#TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 
 TW_HAS_MTP := true
 
-TW_INTERNAL_STORAGE_PATH := "/data/media/0"
+#TW_INTERNAL_STORAGE_PATH := "/data/media/0"
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_MTP_DEVICE := /dev/mtp_usb
-TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_DEFAULT_EXTERNAL_STORAGE := false
+#TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_EXCLUDE_TWRPAPP := true
 
 #TW_EXCLUDE_APEX := true
@@ -214,17 +216,17 @@ TARGET_USES_MKE2FS := true
 TW_THEME := portrait_hdpi
 DEVICE_SCREEN_WIDTH := 720
 DEVICE_SCREEN_HEIGHT := 1600
-TW_Y_OFFSET  := 60 
-TW_H_OFFSET  := -60
+TW_Y_OFFSET  := 55
+TW_H_OFFSET  := -55
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 
 TW_CRYPTO_FS_TYPE := "ext4"
-#TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/bootdevice/by-name/userdata"
-TW_CRYPTO_REAL_BLKDEV := "/dev/block/dm-8"
+TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/bootdevice/by-name/userdata"
+#TW_CRYPTO_REAL_BLKDEV := "/dev/block/dm-8"
 TW_CRYPTO_MNT_POINT := "/data"
 #TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered"
 #TW_CRYPTO_FS_OPTIONS := "rw,seclabel,nosuid,nodev,noatime,noauto_da_alloc,inlinecrypt,resgid=1065,errors=panic,data=ordered"
 TW_CRYPTO_FS_OPTIONS := "rw,seclabel,nosuid,nodev,noatime,noauto_da_alloc,inlinecrypt,resuid=10010,resgid=1065,errors=panic 0 0"
-TW_CRYPTO_KEY_LOC := /metadata/vold/metadata_encryption
+TW_CRYPTO_KEY_LOC := /metadata/vold/metadata_encryption/key
