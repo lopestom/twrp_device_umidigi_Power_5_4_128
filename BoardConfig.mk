@@ -38,6 +38,7 @@ TARGET_USES_64_BIT_BINDER := true
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6765
+BOARD_USES_MTK_HARDWARE := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := g2139dpr_v1_gg_ym_power5n_r
