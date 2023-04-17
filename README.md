@@ -1,48 +1,10 @@
 # TWRP device trees for Umidigi Power 5 - 4GB RAM - 128GB ROM
-# MTK Helio G25 - mt6762_mt6765
-## Specs => https://www.devicespecifications.com/en/model/ed6356a0
-
-## Status --> ALPHA
-
-Current state of features (from [here](https://twrp.me/faq/OfficialMaintainer.html)):
-
-### Blocking checks
-
-- [ ] Correct screen/recovery size
-- [ ] Working Touch, screen
-- [ ] Backup to internal/microSD
-- [ ] Restore from internal/microSD
-- [ ] reboot to system
-- [ ] ADB
-
-### Medium checks
-
-- [ ] update.zip sideload
-- [ ] UI colors (red/blue inversions)
-- [ ] Screen goes off and on
-- [ ] F2FS/EXT4 Support, exFAT/NTFS where supported
-- [ ] all important partitions listed in mount/backup lists
-- [ ] backup/restore to/from external (USB-OTG) storage (not supported by the device) (not tested)
-- [ ] [backup/restore to/from adb](https://gerrit.omnirom.org/#/c/15943/)
-- [ ] decrypt /data
-- [ ] Correct date
-
-### Minor checks
-
-- [ ] MTP export
-- [ ] reboot to bootloader
-- [ ] reboot to recovery
-- [ ] poweroff
-- [ ] battery level
-- [ ] temperature
-- [ ] encrypted backups (no option, need to test)
-- [ ] input devices via USB (USB-OTG) - keyboard, mouse and disks (not supported by the device) (not tested)
-- [ ] USB mass storage export (not tested)
-- [ ] set brightness
-- [ ] vibrate (Doesn't work, WIP)
-- [ ] screenshot
-- [ ] partition SD card
-
+### MTK Helio G25 - mt6762_mt6765
+-----------------
+### Specs => https://www.devicespecifications.com/en/model/ed6356a0
+-----------------
+### Status --> from new twrp-11 -- https://github.com/ADeadTrousers/twrp_device_Unihertz_Atom_LXL/tree/twrp-11.0
+-----------------
 ## Building
 
 ```bash
