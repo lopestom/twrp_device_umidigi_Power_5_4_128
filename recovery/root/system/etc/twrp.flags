@@ -16,8 +16,13 @@
 /vendor_boot	emmc	/dev/block/platform/bootdevice/by-name/vendor_boot		 flags=display="Vendor Boot";backup=1;flashimg=1;slotselect
 /boot            emmc    /dev/block/platform/bootdevice/by-name/boot               flags=backup=1;display="Boot";flashimg=1;slotselect
 /dtbo            emmc    /dev/block/platform/bootdevice/by-name/dtbo               flags=backup=1;display="Dtbo";flashimg=1;slotselect
-/persist         ext4    /dev/block/platform/bootdevice/by-name/persist            flags=backup=1;display="Persist";mounttodecrypt
-/persist_image   emmc    /dev/block/platform/bootdevice/by-name/persist            flags=backup=1;display="Persist Image";flashimg=1
+
+#/persist         ext4    /dev/block/platform/bootdevice/by-name/persist            flags=backup=1;display="Persist"
+#/persist_image   emmc    /dev/block/platform/bootdevice/by-name/persist            flags=backup=1;display="Persist Image";flashimg=1
+
+/mnt/vendor/persist     ext4    /dev/block/platform/bootdevice/by-name/persist       flags=backup=0;display="Persist"
+/persist_image          emmc    /dev/block/platform/bootdevice/by-name/persist       flags=backup=1;display="Persist Image";flashimg=1
+
 /vbmeta		    emmc	/dev/block/platform/bootdevice/by-name/vbmeta           flags=display="vbmeta";backup=1;flashimg=1;slotselect
 /vbmeta_system   emmc    /dev/block/platform/bootdevice/by-name/vbmeta_system      flags=backup=1;display="vbmeta_system";flashimg=1;slotselect
 /vbmeta_vendor   emmc    /dev/block/platform/bootdevice/by-name/vbmeta_vendor      flags=backup=1;display="vbmeta_vendor";flashimg=1;slotselect
@@ -32,13 +37,20 @@
 /proinfo	    emmc	/dev/block/platform/bootdevice/by-name/proinfo          flags=display="Proinfo";backup=1
 
 # Non-Volatile (RAM | DATA | CFG)
-/nvcfg		    ext4	/dev/block/platform/bootdevice/by-name/nvcfg            flags=display="NvCfg";backup=1
-/nvdata		    ext4	/dev/block/platform/bootdevice/by-name/nvdata           flags=display="NvData";backup=1
-/nvram		    emmc	/dev/block/platform/bootdevice/by-name/nvram            flags=display="NvRam";backup=1;flashimg=1
+#/nvcfg		    ext4	/dev/block/platform/bootdevice/by-name/nvcfg            flags=display="NvCfg";backup=1
+#/nvdata		    ext4	/dev/block/platform/bootdevice/by-name/nvdata           flags=display="NvData";backup=1
+#/nvram		    emmc	/dev/block/platform/bootdevice/by-name/nvram            flags=display="NvRam";backup=1;flashimg=1
+
+/mnt/vendor/nvcfg       ext4    /dev/block/platform/bootdevice/by-name/nvcfg       flags=display="NvCfg";backup=1
+/mnt/vendor/nvdata      ext4    /dev/block/platform/bootdevice/by-name/nvdata      flags=display="NvData";backup=1
+/nvram                  emmc    /dev/block/platform/bootdevice/by-name/nvram       flags=display="NvRam";backup=1;flashimg=1
 
 # Subscriber Identification Module (SIM)
-/protect_f	    ext4	/dev/block/platform/bootdevice/by-name/protect1         flags=display="Protect";backup=1;mounttodecrypt
-/protect_s	    ext4	/dev/block/platform/bootdevice/by-name/protect2         flags=backup=1;subpartitionof=/protect_f
+#/protect_f	    ext4	/dev/block/platform/bootdevice/by-name/protect1         flags=display="Protect";backup=1
+#/protect_s	    ext4	/dev/block/platform/bootdevice/by-name/protect2         flags=backup=1;subpartitionof=/protect_f
+
+/mnt/vendor/protect_f   ext4    /dev/block/platform/bootdevice/by-name/protect1       flags=display="Protect F";backup=1
+/mnt/vendor/protect_s   ext4    /dev/block/platform/bootdevice/by-name/protect2       flags=display="Protect S";backup=1
 
 # Trusted Execution Environment (TEE) - trustzone
 /tee		    emmc	/dev/block/platform/bootdevice/by-name/tee             flags=display="Tee";backup=1;flashimg=1;slotselect
